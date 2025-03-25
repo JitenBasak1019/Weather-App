@@ -14,6 +14,7 @@ const getWeather = (city) => {
         
         document.getElementById("temp").innerHTML = response.main.temp ;
         document.getElementById("temp_max").innerHTML = response.main.temp_max;
+        document.getElementById("temp_min").innerHTML = response.main.temp_min;
         document.getElementById("feels_like").innerHTML = response.main.feels_like + "°C";
         document.getElementById("humidity").innerHTML = response.main.humidity + "%";
         document.getElementById("pressure").innerHTML = response.main.pressure + " hPa";
@@ -86,3 +87,55 @@ const getWeather3 = (city) => {
     
 }
 getWeather3('Mumbai')
+
+const getWeather4 = (city) => {
+    
+    fetch(
+        "https://api.openweathermap.org/data/2.5/weather?q=Kolkata&units=metric&appid=e7b72edbb69ea539e5592a51dda909b4"
+    )
+    .then((response) => {
+        return response.json();
+    })
+    .then((response) => {
+        console.log(response);
+        
+        document.getElementById("temp4").innerHTML = response.main.temp ;
+        document.getElementById("feels_like4").innerHTML = response.main.feels_like + "°C";
+        document.getElementById("humidity4").innerHTML = response.main.humidity + "%";
+        document.getElementById("pressure4").innerHTML = response.main.pressure + " hPa";
+        document.getElementById("sunrise4").innerHTML = new Date(response.sys.sunrise * 1000).toLocaleTimeString();
+        document.getElementById("sunset4").innerHTML = new Date(response.sys.sunset * 1000).toLocaleTimeString();
+        document.getElementById("wind_deg4").innerHTML = response.wind.deg + "°";
+        document.getElementById("wind_speed4").innerHTML = response.wind.speed + " m/s";
+        document.getElementById("clouds4").innerHTML = response.clouds.all + "%";
+    })
+    .catch((error) => console.log(error));
+    
+}
+getWeather4('Kolkata')
+
+const getWeather5 = (city) => {
+    
+    fetch(
+        "https://api.openweathermap.org/data/2.5/weather?q=Chennai&units=metric&appid=e7b72edbb69ea539e5592a51dda909b4"
+    )
+    .then((response) => {
+        return response.json();
+    })
+    .then((response) => {
+        console.log(response);
+        
+        document.getElementById("temp5").innerHTML = response.main.temp ;
+        document.getElementById("feels_like5").innerHTML = response.main.feels_like + "°C";
+        document.getElementById("humidity5").innerHTML = response.main.humidity + "%";
+        document.getElementById("pressure5").innerHTML = response.main.pressure + " hPa";
+        document.getElementById("sunrise5").innerHTML = new Date(response.sys.sunrise * 1000).toLocaleTimeString();
+        document.getElementById("sunset5").innerHTML = new Date(response.sys.sunset * 1000).toLocaleTimeString();
+        document.getElementById("wind_deg5").innerHTML = response.wind.deg + "°";
+        document.getElementById("wind_speed5").innerHTML = response.wind.speed + " m/s";
+        document.getElementById("clouds5").innerHTML = response.clouds.all + "%";
+    })
+    .catch((error) => console.log(error));
+    
+}
+getWeather5('Chennai')
