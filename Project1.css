@@ -2,6 +2,11 @@
   display: flex;
   justify-content: space-between;
 } */
+ .row{
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: space-around;
+ }
 
 .wea{
   width: 750px;
@@ -21,4 +26,16 @@
 
 .weaBody{
   height: 192px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-evenly;
 }
+
+
+
+.items{
+  font-size: large;
+}
+
+
