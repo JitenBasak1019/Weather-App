@@ -1,8 +1,12 @@
 const getWeather = (city) => {
     
-    // cityName.innerHTML = city
+    if (!city) {
+        alert("Please enter a valid city name!");
+        return;
+      }
+
     fetch(
-        "https://api.openweathermap.org/data/2.5/weather?q=Dhanbad&units=metric&appid=e7b72edbb69ea539e5592a51dda909b4"
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=e7b72edbb69ea539e5592a51dda909b4`
     )
     .then((response) => {
         return response.json();
@@ -23,17 +27,17 @@ const getWeather = (city) => {
         document.getElementById("wind_deg").innerHTML = response.wind.deg + "°";
         document.getElementById("wind_speed").innerHTML = response.wind.speed + " m/s";
         document.getElementById("clouds").innerHTML = response.clouds.all + "%";
+        document.getElementById("description").innerHTML = response.weather[0].description;
     })
     .catch((error) => console.log(error));
     
 }
 
-// submit.addEventListner("click", (e) => {
-//     e.preventDefault()
-//     getWeather(city.value)
-// })
-
-getWeather('Dhanbad')
+document.getElementById("submit").addEventListener("click", (e) => {
+    e.preventDefault()
+    const city = document.getElementById("city").value;
+    getWeather(city)
+})
 
 
 const getWeather2 = (city) => {
